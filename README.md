@@ -4,7 +4,7 @@
 
 ## To Get Project Started:
 
-clone project, cd fetch-data-list, npm install or yarn install, npm start or yarn start
+clone project, cd fetch-data-list, yarn install, yarn start
 
 ### To Run Tests:
 

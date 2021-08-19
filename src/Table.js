@@ -3,51 +3,45 @@ import "./App.css";
 
 function Table() {
   const [tableData, setTableData] = useState([]);
-  //using useEffect for the fetch to receive data and
+  //using useEffect for the fetch to retreive data and store in state as tableData
   useEffect(() => {
     fetch("https://fetch-hiring.s3.amazonaws.com/hiring.json")
       .then((response) => response.json())
       .then((data) => setTableData(data));
-    console.log(tableData);
   }, []);
 
   //filtering the data to remove null and blank names
   function filterTable(data) {
-    console.log(data);
     const filteredList = data.filter((item) => {
       return !(item.name === "") && !(item.name === null);
     });
-    console.log("filteredList", filteredList);
     return filteredList;
   }
 
   //sorting the data to group by listId
   function sortTable(data) {
     //use sort function to compare the filtered data in the list. sort list from smallest listId to largest listId
-    //
+
     data.sort((itemA, itemB) => {
       // if listId is less than other listId, return negative number
-
       if (itemA.listId !== itemB.listId) {
         return itemA.listId - itemB.listId;
       }
       //if listIds are equal, sort by name (smallest integer name to largest)
-      //use localeCompare to sort string
       else {
-        //pull second half of the string after "Item"
+        //pull second half of the string after "Item" using .split
         const numberA = parseInt(itemA.name.split(" ")[1]);
         const numberB = parseInt(itemB.name.split(" ")[1]);
         return numberA - numberB;
       }
     });
-    console.log("sortTable", data);
     return data;
   }
-
-  console.log("tabledata at 0", tableData);
-  //   tableData.forEach((item) => console.log("item in data", item));
+  //declare both filtered and sorted data to run functions above
   const filteredData = filterTable(tableData);
   const sortedData = sortTable(filteredData);
+
+  //return a table with two columns. Map through sortedData to list data
   return (
     <div className="table">
       <div className="table-header">
