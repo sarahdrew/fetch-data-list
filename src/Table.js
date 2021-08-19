@@ -49,18 +49,23 @@ function Table() {
   const filteredData = filterTable(tableData);
   const sortedData = sortTable(filteredData);
   return (
-    <div className="Table">
-      Table
-      <p>
+    <div className="table">
+      <div className="table-header">
+        <th id="listID-header">List ID: </th>
+        <th id="name-header">Name: </th>
+      </div>
+      <div className="table-data">
         {sortedData.map((i) => {
           return (
             <div>
-              <p>List ID:{i.listId}</p>
-              <p>Name:{i.name}</p>
+              <table>
+                <td id="listID">{i.listId}</td>
+                <td id="name">{i.name}</td>
+              </table>
             </div>
           );
         })}
-      </p>
+      </div>
     </div>
   );
 }

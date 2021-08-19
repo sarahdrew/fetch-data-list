@@ -1,7 +1,62 @@
+* {
+  background-color: #f7f5ff;
+}
+
 .App {
   text-align: center;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.App-header {
+  margin-bottom: 40px;
+}
+
+table {
+  width: 70%;
+  table-layout: fixed;
+  margin-left: 15%;
+}
+
+.table {
+  height: 620px;
+  overflow: auto;
+}
+
+.table-header {
+  background-color: goldenrod;
+  width: 70%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  margin-top: -30px;
+}
+
+#listID {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-right: 80px;
+  background-color: white;
+}
+
+#name {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding: 10px;
+  background-color: white;
+}
+
+#listID-header {
+  padding-right: 40px;
+  background-color: goldenrod;
+}
+
+#name-header {
+  background-color: goldenrod;
 }
